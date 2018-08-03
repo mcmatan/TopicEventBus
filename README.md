@@ -16,7 +16,8 @@ There are many other libraries out there, aiming to solve this issue, but none c
 ## Show me this code, and what's in it for me.
 
 Le'ts build a chat app!
-In this app, we would are going to have multiple conversations screens, each one of them would like to know only about changes to Its conversation.
+
+In this app, we are going to have multiple conversations screens, each one of them would like to know only about changes to Its conversation.
 
 First step, create event for conversation update:
 
@@ -31,7 +32,7 @@ class ConversationChangedEvent: TopicEvnet {
 }
 ```
 
-Every event must inharit from "TopicEvnet", and in case it has a topic (Our example it will be the conversation id) set "key" property to the correct value.
+Every event must inherit from "TopicEvnet," and in case it has a topic (Our example it will be the conversation id) set "key" property to the correct value.
 
 Now inside Conversation vc, subscribe to this event:
 
