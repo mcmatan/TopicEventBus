@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class TopicEvnet {
+open class TopicEvent {
     open var key: String? = nil
     public init() {}
 }

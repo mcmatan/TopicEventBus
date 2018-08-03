@@ -9,14 +9,14 @@
 import XCTest
 @testable import TopicEventBus
 
-class SampleEvent: TopicEvnet {
+class SampleEvent: TopicEvent {
     var value: String
     init(value: String) {
         self.value = value
     }
 }
 
-class SampleEventWithTopic: TopicEvnet {
+class SampleEventWithTopic: TopicEvent {
     init(topic: String) {
         super.init()
         self.key = topic
