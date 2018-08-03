@@ -9,5 +9,6 @@
 import Foundation
 
 open class TopicEvnet {
-    var key: String? = nil
+    open var key: String? = nil
+    public init() {}
 }

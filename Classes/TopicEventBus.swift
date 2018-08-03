@@ -31,7 +31,7 @@ typealias ClassName = NSString
 open class TopicEventBus: TopicEventBusType {
     private var subscribers = NSMapTable<ClassName, EventSubscribtions>.init(keyOptions: NSPointerFunctions.Options.strongMemory,
                                                                         valueOptions: NSPointerFunctions.Options.strongMemory )
-    
+    public init() {}
     public func fire(event: TopicEvnet) {
         let className = String(describing: event)
         guard let subscribtions = self.subscribers.object(forKey: className as ClassName) else {

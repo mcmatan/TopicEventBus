@@ -17,6 +17,7 @@
 		8A3668A6211480660063EA3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A3668A4211480660063EA3E /* LaunchScreen.storyboard */; };
 		8A3668BC211480670063EA3E /* ExampleProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3668BB211480670063EA3E /* ExampleProjectUITests.swift */; };
 		8A3668CA2114808F0063EA3E /* TopicEventBusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3668C92114808F0063EA3E /* TopicEventBusTests.swift */; };
+		8A3668CD21148B550063EA3E /* ConversationChangedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3668CC21148B550063EA3E /* ConversationChangedEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		8A3668BB211480670063EA3E /* ExampleProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProjectUITests.swift; sourceTree = "<group>"; };
 		8A3668BD211480670063EA3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A3668C92114808F0063EA3E /* TopicEventBusTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopicEventBusTests.swift; path = ../../Tests/TopicEventBusTests.swift; sourceTree = "<group>"; };
+		8A3668CC21148B550063EA3E /* ConversationChangedEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationChangedEvent.swift; sourceTree = "<group>"; };
 		905CD450BBB7B61E2B18EECE /* Pods-ExampleProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExampleProject/Pods-ExampleProject.release.xcconfig"; sourceTree = "<group>"; };
 		B6B6D0C972A5E4329D685D7F /* Pods-ExampleProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExampleProjectUITests/Pods-ExampleProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA4622265F9C40910C9328DD /* Pods_ExampleProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 			children = (
 				8A36689B211480660063EA3E /* AppDelegate.swift */,
 				8A36689D211480660063EA3E /* ViewController.swift */,
+				8A3668CB21148B430063EA3E /* Events */,
 				8A36689F211480660063EA3E /* Main.storyboard */,
 				8A3668A2211480660063EA3E /* Assets.xcassets */,
 				8A3668A4211480660063EA3E /* LaunchScreen.storyboard */,
@@ -153,6 +156,14 @@
 				8A3668BD211480670063EA3E /* Info.plist */,
 			);
 			path = ExampleProjectUITests;
+			sourceTree = "<group>";
+		};
+		8A3668CB21148B430063EA3E /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				8A3668CC21148B550063EA3E /* ConversationChangedEvent.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 		D76C2BDC15493BCE2963E0FB /* Frameworks */ = {
@@ -459,6 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A36689E211480660063EA3E /* ViewController.swift in Sources */,
+				8A3668CD21148B550063EA3E /* ConversationChangedEvent.swift in Sources */,
 				8A36689C211480660063EA3E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
