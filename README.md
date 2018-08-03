@@ -11,6 +11,8 @@ TopicEventBus is Easy to use, type safe way of implementing Pub/Sub pattern.
 
 There are many other libraries out there, aiming to solve this issue, but none of them support publishing events by topic, in a type-safe way, with no magic strings.
 
+Also, TopicEventBus holds weak referenced for Its observers, so you don't have to be afraid of memory leaks.
+
 ## What is a topic?
 
 The topic is for example, when you would like to publish "ConversationUpdateEvent" yet have the ability to publish that event only to listeners with conversation id "1234" or to all listeners.
