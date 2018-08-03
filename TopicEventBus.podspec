@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
 s.name              = 'TopicEventBus'
-s.version           = '0.0.2'
+s.version           = '0.0.3'
 s.summary           = 'TopicEventBus'
 s.homepage          = 'https://github.com/mcmatan/TopicEventBus'
 s.ios.deployment_target = '8.0'
