@@ -1,0 +1,16 @@
+PODS:
+  - TopicEventBus (0.0.1)
+
+DEPENDENCIES:
+  - TopicEventBus (from `../`)
+
+EXTERNAL SOURCES:
+  TopicEventBus:
+    :path: ../
+
+SPEC CHECKSUMS:
+  TopicEventBus: 393ae18b320bd615faf612f0583d898994c5467f
+
+PODFILE CHECKSUM: f151ca9aaabbe94dbb6549855f2d153193a38673
+
+COCOAPODS: 1.4.0

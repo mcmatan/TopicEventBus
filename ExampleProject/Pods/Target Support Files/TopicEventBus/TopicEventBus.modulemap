@@ -1,0 +1,6 @@
+framework module TopicEventBus {
+  umbrella header "TopicEventBus-umbrella.h"
+
+  export *
+  module * { export * }
+}
