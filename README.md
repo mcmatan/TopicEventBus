@@ -39,6 +39,8 @@ Every event must inherit from "TopicEvnet," and in case it has a topic (Our exam
 
 Now inside ConversationVC, subscribe to this event:
 
+- Notice you only need to specify the return value you are excpeting, for TopicEventBus will figger out what event you are waiting for
+
 ```Swift
 class ConversationVC: UIViewController {
     let topicEventBus: TopicEventBus
@@ -55,8 +57,6 @@ class ConversationVC: UIViewController {
         })
     }
 }
-
-Notice you only need to specify the return value you are excpeting, for TopicEventBus will figger out what event you are waiting for
 ```
 
 This is how you fire an event:
