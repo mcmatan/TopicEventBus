@@ -16,6 +16,7 @@ Also, TopicEventBus holds weak referenced for Its observers, so you don't have t
 ## What is a topic?
 
 The topic is for example, when you would like to publish "ConversationUpdateEvent" yet have the ability to publish that event only to listeners with conversation id "1234" or to all listeners.
+
 Specifying the conversation Id is specifying a topic for that event.
 
 ## Show me the code! and what's in it for me.
