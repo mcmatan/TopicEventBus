@@ -55,6 +55,8 @@ class ConversationVC: UIViewController {
         })
     }
 }
+
+Notice you only need to specify the return value you are excpeting, for TopicEventBus will figger out what event you are waiting for
 ```
 
 This is how you fire an event:
@@ -68,7 +70,8 @@ class FiringService {
     }
     
     func conversationTitleChanged() {
-        self.topicEventBus.fire(event: ConversationChangedEvent.init(conversationId: "1234", newTitle: "First update"))
+        self.topicEventBus.fire(event: ConversationChangedEvent.init(conversationId: "1234",
+                                                                                            newTitle: "First update"))
     }
 }
 ```
