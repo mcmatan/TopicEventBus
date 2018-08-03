@@ -1,25 +1,28 @@
 # TopicEventBus
 Pub/Sub design pattern implementation framework, with ability to publish events by topic.
 
-
-[![Pod version](https://img.shields.io/cocoapods/v/TopicEventBus.svg?style=flat)](http://cocoadocs.org/docsets/EasyList)
 [![Language](https://img.shields.io/badge/language-swift-orange.svg?style=flat)](https://developer.apple.com/swift)
 
 <p align = "center"><img src="https://image.ibb.co/ixFt0e/logo_transparent.png" alt="TopicEventBus Icon"/></p>
 
 ## About:
 
-TopicEventBus is an Easy to use, type safe, way of implementing the Pub/Sub pattern.
+TopicEventBus is Easy to use, type safe way of implementing Pub/Sub pattern.
 
-There are many other libraries out there, aiming to solve this issue, but none can support publishing events by topic, in a type-safe way, with no magic strings.
+There are many other libraries out there, aiming to solve this issue, but none of them support publishing events by topic, in a type-safe way, with no magic strings.
 
-## Show me this code, and what's in it for me.
+## What is a topic?
+
+The topic is when you would like to publish "ConversationUpdateEvent" yet have the ability to publish that event only to listeners with conversation id "1234" or to all listeners.
+Specifying the conversation Id is specifying a topic for that event.
+
+## Show me the code! and what's in it for me.
 
 Le'ts build a chat app!
 
-In this app, we are going to have multiple conversations screens, each one of them would like to know only about changes to Its conversation.
+In this app, we are going to have multiple conversations screens, each one of them would like to know only about changes to Its own conversation.
 
-First step, create event for conversation update:
+The first step, create an event for conversation update:
 
 ```Swift
 class ConversationChangedEvent: TopicEvnet {
@@ -34,7 +37,7 @@ class ConversationChangedEvent: TopicEvnet {
 
 Every event must inherit from "TopicEvnet," and in case it has a topic (Our example it will be the conversation id) set "key" property to the correct value.
 
-Now inside Conversation vc, subscribe to this event:
+Now inside ConversationVC, subscribe to this event:
 
 ```Swift
 class ConversationVC: UIViewController {
@@ -70,7 +73,7 @@ class FiringService {
 }
 ```
 
-And you did it! You fired your first event with topic!
+You did it! You fired your first event with topic  🤗 🎉
 
 ## API 
 
@@ -82,7 +85,7 @@ _ = self.topicEventBus.subscribe { (conversationChangedEvent: ConversationChange
 }
 ```
 
-Unsubscribe by calling "stop" on the returned object on subscribe:
+Unsubscribe by calling "stop" on the returned object after subscribing:
 
 ```Swift
 let listener = self.topicEventBus.subscribe(topic: conversationId, callback: { (conversationChangedEvent: ConversationChangedEvent) in
@@ -91,7 +94,7 @@ let listener = self.topicEventBus.subscribe(topic: conversationId, callback: { (
 listener.stop()        
 ```
 
-On log out, you can terminate by just calling:
+On app log out, terminate TopicEventBus by just calling:
 
 ```Swift
 self.topicEventBus.terminate()
