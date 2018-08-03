@@ -19,7 +19,7 @@ s.source            = {
 :tag => "#{s.version}" }
 
 s.framework = "UIKit"
-s.source_files      = 'TopicEventBus*' , 'Vendor/*', 'Resource/*', 'TopicEventBus/TopicEventBus/*'
+s.source_files      = 'TopicEventBus*' , 'Vendor/*', 'Resource/*'
 s.requires_arc      = true
 
 end
