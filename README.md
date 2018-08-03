@@ -39,7 +39,7 @@ Every event must inherit from "TopicEvnet," and in case it has a topic (Our exam
 
 Now inside ConversationVC, subscribe to this event:
 
-- Notice you only need to specify the return value you are excpeting, for TopicEventBus will figger out what event you are waiting for
+*Notice you only need to specify the return value you are excpeting, for TopicEventBus to figger out the event you are subscribing for*
 
 ```Swift
 class ConversationVC: UIViewController {
