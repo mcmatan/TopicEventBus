@@ -1,5 +1,5 @@
 # TopicEventBus
-Pub/Sub design pattern implementation framework, with ability to publish events by topic.
+Publish–subscribe design pattern implementation framework, with ability to publish events by topic.
 
 [![Language](https://img.shields.io/badge/language-swift-orange.svg?style=flat)](https://developer.apple.com/swift)
 
