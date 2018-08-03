@@ -95,7 +95,7 @@ Unsubscribe by calling "stop" on the returned object after subscribing:
 
 ```Swift
 let listener = self.topicEventBus.subscribe(topic: conversationId, callback: { (conversationChangedEvent: ConversationChangedEvent) in
-            //
+//
 })
 listener.stop()        
 ```
