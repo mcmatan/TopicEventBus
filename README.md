@@ -28,7 +28,7 @@ In this app, we are going to have multiple conversations screens, each one of th
 The first step, create an event for conversation update:
 
 ```Swift
-class ConversationChangedEvent: TopicEvnet {
+class ConversationChangedEvent: TopicEvent {
     let newTitle: String
     init(conversationId: String, newTitle: String) {
         self.newTitle = newTitle
@@ -38,7 +38,7 @@ class ConversationChangedEvent: TopicEvnet {
 }
 ```
 
-Every event must inherit from "TopicEvnet," and in case it has a topic (Our example it will be the conversation id) set "key" property to the correct value.
+Every event must inherit from "TopicEvent," and in case it has a topic (Our example it will be the conversation id) set "key" property to the correct value.
 
 Now inside ConversationVC, subscribe to this event:
 

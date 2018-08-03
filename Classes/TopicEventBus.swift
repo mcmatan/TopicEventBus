@@ -9,9 +9,9 @@
 import Foundation
 
 public protocol TopicEventBusType {
-    func fire(event: TopicEvnet)
-    func subscribe<T: TopicEvnet>(callback: @escaping (T) -> Void) -> Listener
-    func subscribe<T: TopicEvnet>(topic: String?, callback: @escaping (T) -> Void) -> Listener
+    func fire(event: TopicEvent)
+    func subscribe<T: TopicEvent>(callback: @escaping (T) -> Void) -> Listener
+    func subscribe<T: TopicEvent>(topic: String?, callback: @escaping (T) -> Void) -> Listener
     func terminate()
 }
 
@@ -32,7 +32,7 @@ open class TopicEventBus: TopicEventBusType {
     private var subscribers = NSMapTable<ClassName, EventSubscribtions>.init(keyOptions: NSPointerFunctions.Options.strongMemory,
                                                                         valueOptions: NSPointerFunctions.Options.strongMemory )
     public init() {}
-    public func fire(event: TopicEvnet) {
+    public func fire(event: TopicEvent) {
         let className = String(describing: event)
         guard let subscribtions = self.subscribers.object(forKey: className as ClassName) else {
             return
@@ -51,11 +51,11 @@ open class TopicEventBus: TopicEventBusType {
         }
     }
     
-    public func subscribe<T: TopicEvnet>(callback: @escaping (T) -> Void) -> Listener {
+    public func subscribe<T: TopicEvent>(callback: @escaping (T) -> Void) -> Listener {
         return self.subscribe(topic: nil, callback: callback)
     }
     
-    public func subscribe<T: TopicEvnet>(topic: String?, callback: @escaping (T) -> Void) -> Listener {
+    public func subscribe<T: TopicEvent>(topic: String?, callback: @escaping (T) -> Void) -> Listener {
         let className = NSStringFromClass(T.self)
         if (self.subscribers.object(forKey: className as ClassName) == nil) {
             self.subscribers.setObject(EventSubscribtions(value: []), forKey: className as ClassName)

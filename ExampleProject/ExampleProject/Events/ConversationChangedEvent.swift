@@ -9,7 +9,7 @@
 import Foundation
 import TopicEventBus
 
-class ConversationChangedEvent: TopicEvnet {
+class ConversationChangedEvent: TopicEvent {
     let newTitle: String
     init(conversationId: String, newTitle: String) {
         self.newTitle = newTitle
