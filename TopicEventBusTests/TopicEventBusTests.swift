@@ -29,8 +29,7 @@ class FiringViewController: UIViewController {
     init(topicEventBus: TopicEventBus) {
         self.topicEventBus = topicEventBus
         super.init(nibName: nil, bundle: nil)
-        
-        self.topicEventBus.subscribe { (sampleEventWithTopic: SampleEventWithTopic) in
+        _ = self.topicEventBus.subscribe { (sampleEventWithTopic: SampleEventWithTopic) in
             //
         }
     }
@@ -61,7 +60,7 @@ class TopicEventBusTests: XCTestCase {
         let completedExpectation = expectation(description: "Completed")
         let sampleEvent = SampleEvent(value: "bla")
 
-        topicEventBus.subscribe { (sampleEvent: SampleEvent) in
+        _ = topicEventBus.subscribe { (sampleEvent: SampleEvent) in
             assert(sampleEvent.value == "bla")
             completedExpectation.fulfill()
         }
@@ -73,7 +72,7 @@ class TopicEventBusTests: XCTestCase {
         let completedExpectation = expectation(description: "Completed")
         let sampleEvent = SampleEventWithTopic.init(topic: "1234")
         
-        topicEventBus.subscribe(topic: "1234") { (sampleEventWithTopic: SampleEventWithTopic) in
+        _ = topicEventBus.subscribe(topic: "1234") { (sampleEventWithTopic: SampleEventWithTopic) in
             assert(true)
             completedExpectation.fulfill()
         }
@@ -85,25 +84,28 @@ class TopicEventBusTests: XCTestCase {
     func testDeinitOnSubscribers() {
         let completedExpectation = expectation(description: "Completed")
         vc = FiringViewController.init(topicEventBus: self.topicEventBus)
-        
-        
-        
         DispatchQueue.main.async {
             DispatchQueue.main.async {
             XCTAssertNil(self.vc)
              completedExpectation.fulfill()
             }
         }
-
-        
         waitForExpectations(timeout: 4, handler: nil)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testStopEventsAfterStopListener() {
+        let completedExpectation = expectation(description: "Completed")
+        let sampleEvent = SampleEventWithTopic.init(topic: "1234")
+        
+        let listener = topicEventBus.subscribe(topic: "1234") { (sampleEventWithTopic: SampleEventWithTopic) in
+            assert(true)
+            completedExpectation.fulfill()
         }
+        
+        listener.stop()
+        
+        topicEventBus.fire(event: sampleEvent)
+        waitForExpectations(timeout: 6, handler: nil)
     }
     
 }
