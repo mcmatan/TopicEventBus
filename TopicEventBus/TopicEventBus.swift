@@ -8,30 +8,18 @@
 
 import Foundation
 
-protocol TopicEventBusType {
+public protocol TopicEventBusType {
     func fire(event: TopicEvnet)
     func subscribe<T: TopicEvnet>(classType: T, topic: String) -> Listener
     func subscribe<T: TopicEvnet>(classType: T) -> Listener
     func terminate()
 }
 
-protocol Listener {
+public protocol Listener {
     func stop()
 }
 
-class Subscription: Listener {
-    let key: String?
-    var subscriber: ((Any) -> Void)?
-    init(key: String?, subscriber: @escaping (Any) -> Void) {
-        self.key = key
-        self.subscriber = subscriber
-    }
-    func stop() {
-        subscriber = nil
-    }
-}
-
-class Subscriptions {
+class EventSubscribtions {
     var value: [Subscription]
     init(value: [Subscription]) {
         self.value = value
@@ -41,7 +29,7 @@ class Subscriptions {
 typealias ClassName = NSString
 
 class TopicEventBus {
-    private var subscribers = NSMapTable<ClassName, Subscriptions>.init(keyOptions: NSPointerFunctions.Options.strongMemory,
+    private var subscribers = NSMapTable<ClassName, EventSubscribtions>.init(keyOptions: NSPointerFunctions.Options.strongMemory,
                                                                         valueOptions: NSPointerFunctions.Options.strongMemory )
     
     func fire(event: TopicEvnet) {
@@ -70,7 +58,7 @@ class TopicEventBus {
     func subscribe<T: TopicEvnet>(topic: String?, callback: @escaping (T) -> Void) -> Listener {
         let className = NSStringFromClass(T.self)
         if (self.subscribers.object(forKey: className as ClassName) == nil) {
-            self.subscribers.setObject(Subscriptions(value: []), forKey: className as ClassName)
+            self.subscribers.setObject(EventSubscribtions(value: []), forKey: className as ClassName)
         }
         let subscribtions = self.subscribers.object(forKey: className as ClassName)
         let subscribtion = Subscription.init(key: topic, subscriber: { value in
@@ -81,7 +69,8 @@ class TopicEventBus {
     }
     
     func terminate() {
-        
+        print("Terminating topic event bus")
+        self.subscribers.removeAllObjects()
     }
     
 }

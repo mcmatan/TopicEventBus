@@ -8,6 +8,6 @@
 
 import Foundation
 
-class TopicEvnet {
+open class TopicEvnet {
     var key: String? = nil
 }

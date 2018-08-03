@@ -98,13 +98,38 @@ class TopicEventBusTests: XCTestCase {
         let sampleEvent = SampleEventWithTopic.init(topic: "1234")
         
         let listener = topicEventBus.subscribe(topic: "1234") { (sampleEventWithTopic: SampleEventWithTopic) in
-            assert(true)
+            assert(false)
             completedExpectation.fulfill()
         }
         
         listener.stop()
-        
         topicEventBus.fire(event: sampleEvent)
+        
+        DispatchQueue.main.async {
+            assert(true)
+            completedExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 6, handler: nil)
+    }
+    
+    func testNoEventsAfterTermination() {
+        let completedExpectation = expectation(description: "Completed")
+        let sampleEvent = SampleEventWithTopic.init(topic: "1234")
+        
+        _ = topicEventBus.subscribe(topic: "1234") { (sampleEventWithTopic: SampleEventWithTopic) in
+            assert(false)
+            completedExpectation.fulfill()
+        }
+        
+        topicEventBus.terminate()
+        topicEventBus.fire(event: sampleEvent)
+        
+        DispatchQueue.main.async {
+            assert(true)
+            completedExpectation.fulfill()
+        }
+        
         waitForExpectations(timeout: 6, handler: nil)
     }
     
