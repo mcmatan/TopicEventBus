@@ -10,12 +10,13 @@ Pub/Sub design pattern implementation framework, with ability to publish events 
 ## About:
 
 TopicEventBus is an Easy to use, type safe, way of implementing the Pub/Sub pattern.
+
 There are many other libraries out there, aiming to solve this issue, but none can support publishing events by topic, in a type-safe way, with no magic strings.
 
 ## Show me this code, and what's in it for me.
 
-Le'ts build a chat app.
-In this app, we would are going to have multiple conversations screens, each one of them would like to know only about changes for It's conversation.
+Le'ts build a chat app!
+In this app, we would are going to have multiple conversations screens, each one of them would like to know only about changes to Its conversation.
 
 First step, create event for conversation update:
 
