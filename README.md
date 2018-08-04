@@ -24,7 +24,7 @@ Specifying the conversation Id is specifying a topic for that event.
 
 Let's build a chat app!
 
-In this app, we are going to have multiple conversations screens, each one of them would like to know only about changes to Its own conversation.
+In this app, we are going to have multiple conversations screens, each one of them would like to know only about changes to Its conversation.
 
 The first step, create an event for conversation update:
 
@@ -43,7 +43,7 @@ Every event must inherit from "TopicEvent," and in case it has a topic (Our exam
 
 Now inside ConversationVC, subscribe to this event:
 
-*Notice you only need to specify the return value you are excpeting, for TopicEventBus to figger out the event you are subscribing for*
+*Notice you only need to specify the return value you are expecting, for TopicEventBus to figure out the event you are subscribing for*
 
 ```Swift
 class ConversationVC: UIViewController {
