@@ -1,5 +1,6 @@
 # TopicEventBus
 Publish–subscribe design pattern implementation framework, with ability to publish events by topic.
+(NotificationCenter extended alternative)
 
 [![Language](https://img.shields.io/badge/language-swift-orange.svg?style=flat)](https://developer.apple.com/swift)
 
@@ -7,7 +8,7 @@ Publish–subscribe design pattern implementation framework, with ability to pub
 
 ## About:
 
-TopicEventBus is Easy to use, type safe way of implementing Pub/Sub pattern.
+TopicEventBus is Easy to use, type safe way of implementing Publish–subscribe design pattern.
 
 There are many other libraries out there, aiming to solve this issue, but none of them support publishing events by topic, in a type-safe way, with no magic strings.
 
