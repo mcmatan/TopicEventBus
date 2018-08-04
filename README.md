@@ -22,7 +22,7 @@ Specifying the conversation Id is specifying a topic for that event.
 
 ## Show me the code! and what's in it for me.
 
-Le'ts build a chat app!
+Let's build a chat app!
 
 In this app, we are going to have multiple conversations screens, each one of them would like to know only about changes to Its own conversation.
 
