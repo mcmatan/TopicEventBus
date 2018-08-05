@@ -2,6 +2,8 @@
 Publish–subscribe design pattern implementation framework, with ability to publish events by topic.
 (NotificationCenter extended alternative)
 
+On Medium: https://medium.com/@matancohen_22770/why-you-should-stop-using-notificationcenter-and-start-using-topiceventbus-c4c7ab312643
+
 [![Language](https://img.shields.io/badge/language-swift-orange.svg?style=flat)](https://developer.apple.com/swift)
 
 <p align = "center"><img src="https://image.ibb.co/ixFt0e/logo_transparent.png" alt="TopicEventBus Icon"/></p>
