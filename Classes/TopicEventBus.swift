@@ -51,10 +51,12 @@ open class TopicEventBus: TopicEventBusType {
         }
     }
     
+    @discardableResult
     public func subscribe<T: TopicEvent>(callback: @escaping (T) -> Void) -> Listener {
         return self.subscribe(topic: nil, callback: callback)
     }
     
+    @discardableResult
     public func subscribe<T: TopicEvent>(topic: String?, callback: @escaping (T) -> Void) -> Listener {
         let className = NSStringFromClass(T.self)
         if (self.subscribers.object(forKey: className as ClassName) == nil) {
